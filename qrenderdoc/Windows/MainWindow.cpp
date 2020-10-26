@@ -1163,6 +1163,8 @@ void MainWindow::SetTitle(const QString &filename)
                 .arg(lit(FULL_VERSION_STRING))
                 .arg(QString::fromLatin1(RENDERDOC_GetCommitHash()));
 
+  text += tr(" [Modified version bypassing checks]");
+
   if(IsRunningAsAdmin())
     text += tr(" (Administrator)");
 

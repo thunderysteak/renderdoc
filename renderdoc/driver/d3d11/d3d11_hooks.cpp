@@ -239,10 +239,11 @@ private:
     suppress = (Flags & D3D11_CREATE_DEVICE_PREVENT_ALTERING_LAYER_SETTINGS_FROM_REGISTRY) != 0;
 
     //Renderdoc originally consents with application's request to not be hooked, but we're just gonna ignore that and bypass it for specific purposes.
-    //if(suppress)
-    //{
-    //  RDCLOG("Application requested not to be hooked.");
-    //}
+    if(suppress)
+    {
+      RDCLOG("Application requested not to be hooked. Ignoring D3D11_CREATE_DEVICE_PREVENT_ALTERING_LAYER_SETTINGS_FROM_REGISTRY flag!");
+    }
+
     if(SUCCEEDED(ret) && ppDevice)
     {
       RDCDEBUG("succeeded and hooking.");
